@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="40" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="background" value="bg-level.png"/>
+ </properties>
+ <tileset firstgid="1" name="JnRTiles" tilewidth="32" tileheight="32">
+  <image source="levels/level-tiles.png" width="576" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="tileType" value="coin"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="CollisionLayer" width="60" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2X6w6CMAyFqyh4wxHf/2G1EZOF7Abr6MDzJf0FGz1b1x2IAAAAgDgH7QQA2CnNJ+6OuK70fZxtoIl2/YP9gF4GwPrYPdzXt5vI86XgzAObjsr4iBrrjLXetJMogM8T7lGrNHPqlNfZ0H957VY7gUxeVqSwdb1zeWonkIivx9l31vQus6Mf32kjc23pn/oYeHahb6/ayv7mwnoHqlevtB/S1pvyDyPJiere3xKU0mtI3secM8dz7y6ll2vH9sJcu73n3RR4PJ+/nPUbxijh0Tm36TrytwyF9z7kkXL3xZWTFD69HI8x5iKh97fmIT+ydG6X3lgthe6gXN8b688ur5Lqw94pZx4kgCUAAA==
+  </data>
+ </layer>
+</map>

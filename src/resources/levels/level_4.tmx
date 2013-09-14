@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="50" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="background" value="bg-level.png"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-hd" tilewidth="32" tileheight="32">
+  <image source="levels/tileset-hd.png" width="1024" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="tileType" value="deadly"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="CollisionLayer" width="80" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+1b7W7bMAz09gDbYsdJ//b9X3IR4AOuF1KivpI27QFCasuS5RNFUhS7LDFsRzndynr8opypnp/bjroT3f+uSN+eeDsv93ydqJ553ejZ9Sg/aMd3lr8RiPB3uZU3Ktfj3iXQ9l3K1bh+Ft4L1xFsy/03vks91jn0BOuE3Wl/OepWaqN9oZ9n4SzXLWsRuhDcQEdyn6xfwYMWtAUv3NdK7fg5PAtZ3jPjfGv4thKUrxm6TG0587wuNmdcB95Oy0cZ5uciUFkZAeVrxlpQe66/zKGuT/CtMquyGMFI/nh8ln7i+UV9K7jPdbH5UXlSvvBMD0byF5k3a22r3uZrXmfcN8sPP8s6UXXnJn2N8DNTe/YBcrqyhMh89qxl5v6z+tc93wd9cz3KaNvEnM32ryM+pAVPftif/Hsr/4xnnukzjUarXitxkLj7fSu/buVPZduvhFb+cnoFfjv77PtR0lp9NH/Yr0Fv42/8XqkOOsWD6ppW/boZfQG1tiGNF9zCl4/oRLTjX+vb2e72Qsfe2meOoxm21drvc1yLfTsF7o+Qe+2/1T7leC/xl+pb7VYOOf50X9zzjtx1FB5Hln7D2oIMzdJ/Hn/sO/dCxz5D/rhuX+7jHl/Z/qrc9NgPDyV+2HeGPYQNvEgd20u2EbCbvWBbHNEpI+2HN/5Hydfs91hxVX3nDP/vFfhLsqFxBOgh5rNV/+XabcvHdTYj9or3XJaYzwi9MOq9tfE/hdcO9pXjQjU6wtNB1rfXzv2oWIzGEq117hWgZD80Rs62QPsC9sXXq9Z81c596fnoWmF/HTFEjfXzGYl1Vp0bC/PHsXKNf3sxRM+Hs55jO11CyW+P5jMwT632IzcWzcfgMyuN2Xvjs/qM3Muh9K1R/li2WvVfyX9W+eM9KJ95RfuO3suh9K0qT54O0zPkFuTa8X7JOnPgYsG6b71vBH+wy9C97NvjTFfjO5qT0wKvHZ/Zs/9k6dJ0belri79aG865Gvh7lP2dEYdgsP+idkp9Uq+9IqqnWY70vHvUWciIs8hcH+z78RmhlZMW7duaL86bgKxxzFv1FOLgvbGz1G/ExwM8HZrr38q10Zi+xd/u3G/RM2yzRsZ9rLPh3H6EY08sR57PpfJn8Zf7nnS/tG+PIOov1WLEPJTkzzvzV2699uzX1+TpMJg3lF1KFBxTGzEPOf5UnjnfYpX70W9o0dmlNs/MTcjJsPp6PP8z/M3cOEp91srhKHi+APQ/7xHZHvbwF4l1aJsoHp2HW9J/mjfHe+BW8DyoP2TNTc27EEt8FEaem8CHK62jkv+r/FnngB5G68LSt3h7rxJ6xhnZ/+u15gJ60HHN1okzzu0YvIcFIud6uXfVrOfZZzgefyU93LMHRc6Nl7+p/PSedc86t6kF+6sj8xlV3+ucnuTvFpn6LBxGET3HthDJu3l19Mgn+PH+j+kz8qe5FpwnqXmJVp3maaBonobmIO3ymwrHp/T/3bSfnH3lPrkPLj37Fu7/K+cC/eA18R+wmRwEgD4AAA==
+  </data>
+ </layer>
+</map>

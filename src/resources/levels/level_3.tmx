@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="50" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="background" value="bg-level.png"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-hd" tilewidth="32" tileheight="32">
+  <image source="levels/tileset-hd.png" width="1024" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="deadly"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="tileType" value="solid"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="CollisionLayer" width="80" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2agY6CMBBEoe3/f/Np4iTDZI1ggEN9L9mIhbawbEtnYZoAAAAAAAAAAAAAAODXaDebH7/jZv1ha+smoyhb296VuV/r/TrcR9qWD2Xa12L/MJutrMUxs9VTH15f/1UPAJZofHT7/YZ5COBb0XNTBgDXQ+NT69Nc92ofbMN1mPzZp6WPpQO24npl3uNkA7XtumeejuuvQr5rYR6f764DU3ftTT77UkeeQeYC3Ifym7a34rFwRDyoXT/fvJYzSI0+nthWPJY9Ll7lANbeq4y9FmXq+2iq++ZlmU/xcd2snh/n+9JG0U+flrHaizKfp9NP3p/fK793fs5nzY8AsD8+F/s6CA0LcE1cWzFO4dfxta2vaa/ynrHSx2tInVS9f03N8W5+JbVyrvM/ET9/11upjVKTraFaN2X8bdXMVd//Ob+nbqz0YpVHdX96G5kbym83PAYz3jOXmN8tuH7N3OOI46tcVV5Hft9Qtf0s38X7WoDP5w+nc5JTgD4AAA==
+  </data>
+ </layer>
+</map>
