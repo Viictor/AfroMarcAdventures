@@ -26,6 +26,8 @@ public abstract class Character extends LevelObject{
     protected float                     decelerationSpeed = 1;
     protected float                     maximumSpeed = 1;
     
+    private boolean cond = false;
+    
     public Character(float x, float y) {
         super(x, y);
     }
