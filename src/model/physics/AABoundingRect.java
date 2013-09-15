@@ -2,6 +2,8 @@
 package model.physics;
 
 import model.tiles.Tile;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.Graphics;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,11 @@ public class AABoundingRect extends BoundingShape{
         this.y = y + height/2;
         this.width = width;
         this.height = height;
+    }
+
+    public void render(Graphics g, float offset_x, float offset_y) {
+        g.setColor(Color.blue);
+        g.drawRect(x-width/2-offset_x, y-height/2-offset_y, width, height);
     }
 
     @Override

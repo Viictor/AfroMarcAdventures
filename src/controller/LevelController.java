@@ -25,7 +25,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author Victor
  */
 public class LevelController extends BasicGameState implements ComponentListener {
@@ -38,7 +37,6 @@ public class LevelController extends BasicGameState implements ComponentListener
     private Physics physics;
     private MouseOverArea mouseOverRestart;
     private Game game;
-
     private TrueTypeFont ttFont;
     private TrueTypeFont ttFont40;
 
@@ -61,26 +59,26 @@ public class LevelController extends BasicGameState implements ComponentListener
         physics = new Physics();
         Image restartbutton = new Image("resources/MainMenu/play.png");
         Image restartbuttonPressed = new Image("resources/MainMenu/play_pressed.png");
-        
+
         mouseOverRestart = new MouseOverArea(gc, restartbutton,
-                Game.WINDOW_WIDTH/2 - restartbutton.getWidth() / 2,
-                Game.WINDOW_HEIGTH/2 - restartbutton.getHeight() / 2 + 100,
+                Game.WINDOW_WIDTH / 2 - restartbutton.getWidth() / 2,
+                Game.WINDOW_HEIGTH / 2 - restartbutton.getHeight() / 2 + 100,
                 restartbutton.getWidth(), restartbutton.getHeight(), this);
         mouseOverRestart.setMouseDownImage(restartbuttonPressed);
         mouseOverRestart.setMouseDownSound(new Sound("resources/sounds/Bleepy 001.wav"));
-        
-        
+
+
         try {
-            
+
             InputStream inputStream = ResourceLoader.getResourceAsStream("resources/font.ttf");
 
             Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
             font = font.deriveFont(Font.PLAIN, 20);
             Font font40 = font.deriveFont(Font.PLAIN, 40);
-            
+
             ttFont = new TrueTypeFont(font, true);
             ttFont40 = new TrueTypeFont(font40, true);
-            
+
         } catch (FontFormatException | IOException ex) {
             Logger.getLogger(LevelController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -93,8 +91,7 @@ public class LevelController extends BasicGameState implements ComponentListener
             level.render(gc, g);
             ttFont.drawString(10, 10, "High : " + player.isHighEnabled());
         } else {
-            //level.render(gc, g);
-            ttFont40.drawString(Game.WINDOW_WIDTH / 2 - ttFont40.getWidth("You Died !")/2, Game.WINDOW_HEIGTH / 2, "You Died !");
+            ttFont40.drawString(Game.WINDOW_WIDTH / 2 - ttFont40.getWidth("You Died !") / 2, Game.WINDOW_HEIGTH / 2, "You Died !");
             mouseOverRestart.render(gc, g);
         }
     }

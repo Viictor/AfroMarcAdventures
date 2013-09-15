@@ -1,20 +1,11 @@
 
 package view;
 
-import view.screens.MainMenu;
 import model.physics.AABoundingRect;
+import org.newdawn.slick.*;
+import view.screens.MainMenu;
+
 import java.util.EnumMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Music;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
-import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.geom.Vector2f;
 
 /**
  *
@@ -58,7 +49,7 @@ public class Player extends Character {
         setRollingAnimation(rolling, rollingLeft, 250);
         rollingDuration = rollingAnim.get(facing).getFrameCount() * 250;
         
-        boundingShape = new AABoundingRect(x, y, 45, 60);
+        boundingShape = new AABoundingRect(x, y, 45, 63);
         
         accelerationSpeed = 0.001f;
         maximumSpeed = 0.25f;
@@ -134,7 +125,7 @@ public class Player extends Character {
     public void render(float offset_x, float offset_y, GameContainer gc, Graphics g) {
         
         if (rollingEnabled) {
-            rollingAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+            rollingAnim.get(facing).draw(x-offset_x, y-offset_y);
         } 
         if (System.currentTimeMillis() - rollingTime > rollingDuration) {
             setRollingEnabled(false);
@@ -142,22 +133,24 @@ public class Player extends Character {
             
             if (!highEnabled) {
                 if (jumpingAnim != null && y_velocity != 0) {
-                    jumpingAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    jumpingAnim.get(facing).draw(x-offset_x, y-offset_y);
                 } else if (movingAnim != null && moving) {
-                    movingAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    movingAnim.get(facing).draw(x-offset_x, y-offset_y);
                 } else {
-                    sprites.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    sprites.get(facing).draw(x-offset_x, y-offset_y);
                 }
             } else {
                 if (jumpingHighAnim != null && y_velocity != 0) {
-                    jumpingHighAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    jumpingHighAnim.get(facing).draw(x-offset_x, y-offset_y);
                 } else if (movingHighAnim != null && moving) {
-                    movingHighAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    movingHighAnim.get(facing).draw(x-offset_x, y-offset_y);
                 } else {
-                    spritesHigh.get(facing).draw(x-2-offset_x, y-2-offset_y);
+                    spritesHigh.get(facing).draw(x-offset_x, y-offset_y);
                 }
             }
         }
+
+        //((AABoundingRect)boundingShape).render(g, offset_x, offset_y);
     }
     
     @Override

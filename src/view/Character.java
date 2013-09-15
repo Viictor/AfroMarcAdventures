@@ -33,11 +33,11 @@ public abstract class Character extends LevelObject{
 
     public void render(float offset_x, float offset_y, GameContainer gc, Graphics g) {
         if (jumpingAnim != null && y_velocity != 0) {
-            jumpingAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+            jumpingAnim.get(facing).draw(x-offset_x, y-offset_y);
         } else if (movingAnim != null && moving) {
-            movingAnim.get(facing).draw(x-2-offset_x, y-2-offset_y);
+            movingAnim.get(facing).draw(x-offset_x, y-offset_y);
         } else {
-            sprites.get(facing).draw(x-2-offset_x, y-2-offset_y);
+            sprites.get(facing).draw(x-offset_x, y-offset_y);
         }
     }
     
