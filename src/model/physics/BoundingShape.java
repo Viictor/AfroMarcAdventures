@@ -2,6 +2,7 @@
 package model.physics;
 
 import model.tiles.Tile;
+
 import java.util.ArrayList;
 
 /**
@@ -14,12 +15,12 @@ public abstract class BoundingShape {
         if (bv instanceof AABoundingRect) {
             return checkCollision((AABoundingRect)bv);
         } else if (bv instanceof DeadlyBoundingRect) {
-            return checkCollision((DeadlyBoundingRect)bv);
+            return checkCollision(bv);
         }
         return false;
     }
     
-    public abstract boolean checkCollision(AABoundingRect box);
+    protected abstract boolean checkCollision(AABoundingRect box);
     
     public abstract void updatePosition(float newX, float newY);
     

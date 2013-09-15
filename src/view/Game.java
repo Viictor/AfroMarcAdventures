@@ -1,18 +1,15 @@
 
 package view;
 
-import view.screens.MainMenu;
 import controller.LevelController;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
+import view.screens.MainMenu;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,9 +23,7 @@ public class Game extends StateBasedGame {
     
     public static final float SCALE = (float)(1.25*((double)WINDOW_WIDTH/1280));
     public static final String GAME_NAME = "AfroMarc Adventures";
-    
-    private LevelController level_1;
-    
+
     public static void main(String[] args) {
         try {
             AppGameContainer app = new AppGameContainer(new Game());
@@ -50,7 +45,7 @@ public class Game extends StateBasedGame {
     }
     
     public void initGame(GameContainer gc) throws SlickException {
-        level_1 = new LevelController("level_4", this);
+        LevelController level_1 = new LevelController("level_4", this);
         MainMenu menu = new MainMenu(this);
         
         addState(menu);

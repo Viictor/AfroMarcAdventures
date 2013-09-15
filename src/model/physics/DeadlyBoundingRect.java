@@ -5,6 +5,7 @@
 package model.physics;
 
 import model.tiles.Tile;
+
 import java.util.ArrayList;
 
 /**
@@ -50,7 +51,7 @@ public class DeadlyBoundingRect extends BoundingShape {
 
     @Override
     public ArrayList<Tile> getTilesOccupying(Tile[][] tiles) {
-        ArrayList<Tile> occupiedTiles = new ArrayList<Tile>();
+        ArrayList<Tile> occupiedTiles = new ArrayList<>();
         for (int i = (int) x; i <= x + width / 2 + (32 - (width / 2) % 32); i += 32) {
             for (int j = (int) y; j <= y + (height / 2) + (32 - (height / 2) % 32); j += 32) {
                 if (i / 32 > 79 || j / 32 > 49 || i / 32 < 0 || j / 32 < 0) {
@@ -85,7 +86,7 @@ public class DeadlyBoundingRect extends BoundingShape {
 
     @Override
     public ArrayList<Tile> getGroundTiles(Tile[][] tiles) {
-        ArrayList<Tile> tilesUnderneath = new ArrayList<Tile>();
+        ArrayList<Tile> tilesUnderneath = new ArrayList<>();
         int j = (int) (y + height / 2 + 1);
 
         for (int i = (int) x; i <= x + width / 2 + (32 - (width / 2) % 32); i += 32) {

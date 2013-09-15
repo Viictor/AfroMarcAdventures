@@ -2,25 +2,10 @@
 package view.screens;
 
 import controller.LevelController;
-import view.Game;
-import view.Player;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.newdawn.slick.Animation;
+import org.newdawn.slick.*;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
-import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.gui.AbstractComponent;
 import org.newdawn.slick.gui.ComponentListener;
 import org.newdawn.slick.gui.MouseOverArea;
@@ -31,6 +16,13 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.util.ResourceLoader;
 import view.Game;
 import view.Player;
+
+import java.awt.Font;
+import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,9 +38,7 @@ public class MainMenu extends BasicGameState implements ComponentListener{
     private static final int EXIT = 3;
     
     public static Music music;
-    
-    private Font font;
-    private Font font20;
+
     private TrueTypeFont ttFont;
     private TrueTypeFont ttFont20;
     
@@ -56,7 +46,6 @@ public class MainMenu extends BasicGameState implements ComponentListener{
     private Image[] buttons = new Image[4];
     private Image[] buttonsPressed = new Image[4];
     private MouseOverArea[] playArea = new MouseOverArea[4];
-    private Music musicMenu;
     private Music musicLevel_1;
     private Animation player;
     private Animation playerL;
@@ -91,10 +80,10 @@ public class MainMenu extends BasicGameState implements ComponentListener{
         try {
             
             InputStream inputStream = ResourceLoader.getResourceAsStream("resources/font.ttf");
-            
-            font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-            font = font.deriveFont(Font.PLAIN,60);
-            font20 = font.deriveFont(Font.BOLD,20);
+
+            Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
+            font = font.deriveFont(Font.PLAIN, 60);
+            Font font20 = font.deriveFont(Font.BOLD, 20);
             
             ttFont = new TrueTypeFont(font, true);
             ttFont20 = new TrueTypeFont(font20, true);
@@ -121,9 +110,9 @@ public class MainMenu extends BasicGameState implements ComponentListener{
             playArea[i].setMouseDownSound(new Sound("resources/sounds/Bleepy 001.wav"));
             
         }
-        
-        
-        musicMenu = new Music("resources/sounds/BSO/Bob_Marley_Jammin_8_Bit.wav");
+
+
+        Music musicMenu = new Music("resources/sounds/BSO/Bob_Marley_Jammin_8_Bit.wav");
         musicLevel_1 = new Music("resources/sounds/BSO/Bob Marley - Waiting In Vain ( 8-bit Sounds ).wav");
         music = musicMenu;
         music.loop();
@@ -143,9 +132,9 @@ public class MainMenu extends BasicGameState implements ComponentListener{
         ttFont20.drawString(Game.WINDOW_WIDTH / 2 - ttFont20.getWidth(actionControlls)/2, Game.WINDOW_HEIGTH / 2 + 170, actionControlls, Color.white);
         
         player.draw(Game.WINDOW_WIDTH/2 - Player.SPRITE_WIDTH/2, Game.WINDOW_HEIGTH/2 - Player.SPRITE_HEIGHT/2);
-        
-        for (int i = 0; i < playArea.length; i++) {
-            playArea[i].render(gc, g);
+
+        for (MouseOverArea aPlayArea : playArea) {
+            aPlayArea.render(gc, g);
         }
     }
 

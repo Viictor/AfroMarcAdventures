@@ -1,16 +1,7 @@
 
 package view.screens;
 
-import view.Game;
-import java.io.IOException;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Music;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.Sound;
+import org.newdawn.slick.*;
 import org.newdawn.slick.loading.DeferredResource;
 import org.newdawn.slick.loading.LoadingList;
 import org.newdawn.slick.state.BasicGameState;
@@ -19,6 +10,8 @@ import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.util.ResourceLoader;
 import view.Game;
+
+import java.io.IOException;
 
 /**
  *
@@ -52,7 +45,6 @@ public class Loading extends BasicGameState {
         int total = LoadingList.get().getTotalResources();
         int loaded = LoadingList.get().getTotalResources() - LoadingList.get().getRemainingResources();
 
-        float bar = loaded / (float) total;
         g.fillRect(100,150,loaded*40,20);
         g.drawRect(100,150,total*40,20);
     } 

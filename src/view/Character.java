@@ -2,11 +2,12 @@
 package view;
 
 import model.LevelObject;
-import java.util.EnumMap;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+
+import java.util.EnumMap;
 
 /**
  *
@@ -14,7 +15,7 @@ import org.newdawn.slick.Image;
  */
 public abstract class Character extends LevelObject{
     
-    public enum Facing {LEFT, RIGHT};
+    public enum Facing {LEFT, RIGHT}
 
     protected Player.Facing facing = Player.Facing.RIGHT;
     protected EnumMap<Player.Facing, Image> sprites;

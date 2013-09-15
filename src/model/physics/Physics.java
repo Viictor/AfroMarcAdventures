@@ -1,10 +1,11 @@
 package model.physics;
 
-import view.Character;
-import view.Player;
 import model.Level1;
 import model.LevelObject;
 import model.tiles.Tile;
+import view.Character;
+import view.Player;
+
 import java.util.ArrayList;
 
 /**
@@ -90,11 +91,11 @@ public class Physics {
             }
             
             if (c.getYVelocity() < -0.05 && c instanceof Player) {
-               ((Player)c).setFrame(0, ((Player)c).isHighEnabled());
+               c.setFrame(0, ((Player) c).isHighEnabled());
             } else if (c.getYVelocity() < 0.05 && c instanceof Player) {
-               ((Player)c).setFrame(1, ((Player)c).isHighEnabled());
+               c.setFrame(1, ((Player) c).isHighEnabled());
             } else if (c.getYVelocity() > 0.15 && c instanceof Player) {
-                ((Player)c).setFrame(2, ((Player)c).isHighEnabled());
+                c.setFrame(2, ((Player) c).isHighEnabled());
             }
 
             handleGameObject(c, level, delta);

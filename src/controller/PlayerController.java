@@ -4,8 +4,8 @@
  */
 package controller;
 
-import view.Player;
 import org.newdawn.slick.Input;
+import view.Player;
 
 /**
  *
@@ -14,7 +14,7 @@ import org.newdawn.slick.Input;
 public class PlayerController {
     
     private Player player;
-    private boolean upPressed,rightPressed, leftPressed, high = false;
+    private boolean high = false;
     private long time = 0;
     
     public PlayerController(Player player) {
@@ -26,22 +26,11 @@ public class PlayerController {
         if (time == 0) {
             time = System.currentTimeMillis();
         }
-        
-        if (i.isKeyDown(Input.KEY_W) || i.isKeyDown(Input.KEY_UP)) {
-            upPressed = true;
-        } else {
-            upPressed = false;
-        }
-        if (i.isKeyDown(Input.KEY_D) || i.isKeyDown(Input.KEY_RIGHT)) {
-            rightPressed = true;
-        } else {
-            rightPressed = false;
-        }
-        if (i.isKeyDown(Input.KEY_A) || i.isKeyDown(Input.KEY_LEFT)) {
-            leftPressed = true;
-        } else {
-            leftPressed = false;
-        }
+
+        boolean upPressed = i.isKeyDown(Input.KEY_W) || i.isKeyDown(Input.KEY_UP);
+        boolean rightPressed = i.isKeyDown(Input.KEY_D) || i.isKeyDown(Input.KEY_RIGHT);
+        boolean leftPressed = i.isKeyDown(Input.KEY_A) || i.isKeyDown(Input.KEY_LEFT);
+
         if (i.isKeyDown(Input.KEY_X) && (System.currentTimeMillis() - time) > 200 && player.getYVelocity() == 0) {
             high = !high;
             if (high) {

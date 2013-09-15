@@ -1,6 +1,5 @@
 package model;
 
-import model.physics.AABoundingRect;
 import model.physics.BoundingShape;
 
 public abstract class LevelObject {
@@ -18,9 +17,6 @@ public abstract class LevelObject {
     public LevelObject(float x, float y){
         this.x = x;
         this.y = y;
- 
-        //default bounding shape is a 32 by 32 box
-        boundingShape = new AABoundingRect(x,y,32,32);
     }
  
     public void applyGravity(float gravity){

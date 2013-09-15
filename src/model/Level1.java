@@ -1,19 +1,20 @@
 
 package model;
 
-import view.Character;
-import view.Game;
-import view.Player;
 import model.tiles.AirTile;
 import model.tiles.DeadlyTile;
 import model.tiles.SolidTile;
 import model.tiles.Tile;
-import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+import view.Character;
+import view.Game;
+import view.Player;
+
+import java.util.ArrayList;
 
 
 /**
@@ -123,7 +124,7 @@ public class Level1 {
         int half_width = (int) (Game.WINDOW_WIDTH/Game.SCALE/2);
  
         //next up is the maximum offset, this is the most right side of the map, minus half of the screen offcourse
-        int maxX = (int) (map.getWidth()*32)-half_width;
+        int maxX = map.getWidth()*32 -half_width;
  
         //now we have 3 cases here
         if(player.getX() < half_width){
@@ -146,7 +147,7 @@ public class Level1 {
  
         int half_heigth = (int) (Game.WINDOW_HEIGTH/Game.SCALE/2);
  
-        int maxY = (int) (map.getHeight()*32)-half_heigth;
+        int maxY = map.getHeight()*32 -half_heigth;
  
         if(player.getY() < half_heigth){
             offset_y = 0;
