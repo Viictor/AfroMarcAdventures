@@ -58,6 +58,12 @@ public class Physics {
         //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
         ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
 
+        AABoundingRect a = (AABoundingRect)obj.getBoundingShape();
+
+        if (a.y == 1440f) {
+
+        }
+
         //we lower the the bounding object a bit so we can check if we are actually a bit above the ground
         obj.getBoundingShape().movePosition(0, 1);
 

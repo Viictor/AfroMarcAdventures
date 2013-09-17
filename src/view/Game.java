@@ -62,6 +62,8 @@ public class Game extends StateBasedGame {
     }
     
     public void restartLevel(int state, String level) {
+        MainMenu.music.stop();
+        MainMenu.music.play();
         enterState(state, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
     }
 }

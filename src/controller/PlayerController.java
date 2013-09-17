@@ -8,21 +8,20 @@ import org.newdawn.slick.Input;
 import view.Player;
 
 /**
- *
  * @author Victor
  */
 public class PlayerController {
-    
+
     private Player player;
     private boolean high = false;
     private long time = 0;
-    
+
     public PlayerController(Player player) {
         this.player = player;
     }
-    
+
     public void handleInput(Input i, int delta) {
-        
+
         if (time == 0) {
             time = System.currentTimeMillis();
         }
@@ -41,20 +40,25 @@ public class PlayerController {
                 player.setMaximumFallSpeed(0.22f);
             }
             time = 0;
-        } 
-        
-        if (upPressed && player.getYVelocity() == 0){
+        }
+
+        if (upPressed && player.getYVelocity() == 0) {
             player.jump();
         }
-        if (rightPressed){
+        if (rightPressed) {
             player.moveRight(delta);
         }
-        if (leftPressed){
+        if (leftPressed) {
             player.moveLeft(delta);
         }
-        
-        player.setHighEnabled(high);
-        
+
+        if (player.isHighEnabled() && (System.currentTimeMillis() - player.getHighTime()) > Player.HIGH_DURATION) {
+            high = false;
+            player.setHighEnabled(high);
+            player.setHighTime(0);
+            player.setMaximumFallSpeed(0.22f);
+        }
+
         if (!rightPressed && !leftPressed) {
             player.setMoving(false);
         }
