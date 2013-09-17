@@ -20,7 +20,8 @@ public class Game extends StateBasedGame {
     public static final int WINDOW_WIDTH = 1280;
     public static final int WINDOW_HEIGTH = WINDOW_WIDTH / 16*9;
     public static final boolean FULLSCREEN = false;
-    
+    public static final boolean SOUND = false;
+
     public static final float SCALE = (float)(1.25*((double)WINDOW_WIDTH/1280));
     public static final String GAME_NAME = "AfroMarc Adventures";
 
@@ -62,8 +63,10 @@ public class Game extends StateBasedGame {
     }
     
     public void restartLevel(int state, String level) {
-        MainMenu.music.stop();
-        MainMenu.music.play();
+        if (SOUND) {
+            MainMenu.music.stop();
+            MainMenu.music.play();
+        }
         enterState(state, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
     }
 }

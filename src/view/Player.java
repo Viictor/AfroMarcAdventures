@@ -157,7 +157,7 @@ public class Player extends Character {
             }
         }
 
-        ((AABoundingRect)boundingShape).render(g, offset_x, offset_y);
+        //((AABoundingRect)boundingShape).render(g, offset_x, offset_y);
     }
 
     @Override

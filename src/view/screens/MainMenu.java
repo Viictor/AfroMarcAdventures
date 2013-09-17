@@ -115,7 +115,9 @@ public class MainMenu extends BasicGameState implements ComponentListener{
         Music musicMenu = new Music("resources/sounds/BSO/Bob_Marley_Jammin_8_Bit.wav");
         musicLevel_1 = new Music("resources/sounds/BSO/Bob Marley - Waiting In Vain ( 8-bit Sounds ).wav");
         music = musicMenu;
-        music.loop();
+        if (Game.SOUND) {
+            music.loop();
+        }
     }
 
     @Override
@@ -155,9 +157,11 @@ public class MainMenu extends BasicGameState implements ComponentListener{
         
         Input in = gc.getInput();
         if (in.isKeyDown(Input.KEY_ENTER)) {
-            music.stop();
-            music = musicLevel_1;
-            music.loop();
+            if (Game.SOUND) {
+                music.stop();
+                music = musicLevel_1;
+                music.loop();
+            }
             game.enterState(LevelController.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
     }
@@ -165,9 +169,11 @@ public class MainMenu extends BasicGameState implements ComponentListener{
     @Override
     public void componentActivated(AbstractComponent ac) {
         if (ac == playArea[PLAY]) {
-            music.stop();
-            music = musicLevel_1;
-            music.loop();
+            if (Game.SOUND) {
+                music.stop();
+                music = musicLevel_1;
+                music.loop();
+            }
             game.enterState(LevelController.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }else if (ac == playArea[EXIT]) {
             System.exit(0);
