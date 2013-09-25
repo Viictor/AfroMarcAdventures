@@ -1,9 +1,6 @@
 package model;
 
-import model.tiles.AirTile;
-import model.tiles.DeadlyTile;
-import model.tiles.SolidTile;
-import model.tiles.Tile;
+import model.tiles.*;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -22,9 +19,30 @@ public abstract class Level {
 
     protected TiledMap map;
     protected Tile[][] tiles;
+    protected ArrayList<MovingTile> movingTiles;
     protected ArrayList<Character> characters;
     protected Player player;
     protected Image background;
+    protected float stepsMoved = 0;
+    protected float velocity = 0.005f;
+    protected boolean positive = true;
+
+    public void update(int delta) {
+        for (MovingTile tile : movingTiles) {
+            if (stepsMoved < 1000 && positive) {
+                stepsMoved++;
+                tile.moveY(delta * -velocity);
+                tile.getBoundingShape().movePosition(0,delta * -velocity);
+            } else if (stepsMoved > 0) {
+                stepsMoved--;
+                tile.moveY(delta * velocity);
+                tile.getBoundingShape().movePosition(0,delta * velocity);
+                positive = false;
+            } else {
+                positive = true;
+            }
+        }
+    }
 
     public void render(GameContainer gc, Graphics g) {
 
@@ -33,7 +51,12 @@ public abstract class Level {
 
         renderBackground();
 
+        for (MovingTile tile : movingTiles) {
+            g.drawImage(tile.getImg(), tile.getXF()*32-offset_x, tile.getYF()*32-offset_y);
+        }
+
         map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 33, 19);
+
 
         for(Character c : characters){
             c.render(offset_x,offset_y, gc, g);
@@ -58,6 +81,7 @@ public abstract class Level {
     }
 
     protected void loadTileMap() {
+        movingTiles = new ArrayList<>();
         tiles = new Tile[map.getWidth()][map.getHeight()];
 
         int layerIndex = map.getLayerIndex("CollisionLayer");
@@ -91,6 +115,29 @@ public abstract class Level {
             }
 
         }
+
+        int nGroups = map.getObjectGroupCount();
+
+        if (nGroups == -1) {
+            System.err.println("Map does not have the layer \"MovingPlatfromsLayer\"");
+        }
+
+        for (int groupID = 0; groupID < nGroups; groupID++) {
+            int objectCount = map.getObjectCount(groupID);
+
+            for( int objectID = 0; objectID < objectCount; objectID++ ) // oi = object index
+            {
+
+                String objName = map.getObjectName(groupID, objectID);
+                int objX = map.getObjectX(groupID, objectID);
+                int objY = map.getObjectY(groupID, objectID);
+
+                if (objName.equals("moving")) {
+                    MovingTile tile = new MovingTile(objX/32,objY/32);
+                    movingTiles.add(tile);
+                }
+            }
+        }
     }
 
     public void addCharacter(view.Character c) {
@@ -103,6 +150,10 @@ public abstract class Level {
 
     public ArrayList<Character> getCharacters() {
         return characters;
+    }
+
+    public ArrayList<MovingTile> getMovingTiles() {
+        return movingTiles;
     }
 
     public int getXOffset(){

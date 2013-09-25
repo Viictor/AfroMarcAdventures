@@ -2,6 +2,7 @@ package model.physics;
 
 import model.Level1;
 import model.LevelObject;
+import model.tiles.MovingTile;
 import model.tiles.Tile;
 import view.Character;
 import view.Player;
@@ -24,9 +25,9 @@ public class Physics {
         handleCharacters(level, delta);
     }
 
-    private boolean checkCollision(LevelObject obj, Tile[][] mapTiles) {
+    private boolean checkCollision(LevelObject obj, Tile[][] mapTiles, ArrayList<MovingTile> movTiles) {
         //get only the tiles that matter
-        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles);
+        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles, movTiles);
         
         if (tiles != null ) {
             for (Tile t : tiles) {
@@ -54,15 +55,9 @@ public class Physics {
         return false;
     }
 
-    private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles) {
+    private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles, ArrayList<MovingTile> movingTiles) {
         //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
-        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
-
-        AABoundingRect a = (AABoundingRect)obj.getBoundingShape();
-
-        if (a.y == 1440f) {
-
-        }
+        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles, movingTiles);
 
         //we lower the the bounding object a bit so we can check if we are actually a bit above the ground
         obj.getBoundingShape().movePosition(0, 1);
@@ -111,7 +106,7 @@ public class Physics {
     private void handleGameObject(LevelObject obj, Level1 level, int delta) {
 
         //first update the onGround of the object
-        obj.setOnGround(isOnGroud(obj, level.getTiles()));
+        obj.setOnGround(isOnGroud(obj, level.getTiles(), level.getMovingTiles()));
 
         //now apply gravitational force if we are not on the ground or when we are about to jump
         if (!obj.isOnGround() || obj.getYVelocity() < 0) {
@@ -182,7 +177,7 @@ public class Physics {
                 obj.setX(obj.getX() + step_x);
 
                 //if we collide with any of the bounding shapes of the tiles we have to revert to our original position
-                if (checkCollision(obj, level.getTiles())) {
+                if (checkCollision(obj, level.getTiles(), level.getMovingTiles())) {
 
                     //undo our step, and set the velocity and amount we still have to move to 0, because we can't move in that direction
                     obj.setX(obj.getX() - step_x);
@@ -202,7 +197,7 @@ public class Physics {
 
                 obj.setY(obj.getY() + step_y);
 
-                if (checkCollision(obj, level.getTiles())) {
+                if (checkCollision(obj, level.getTiles(), level.getMovingTiles())) {
                     obj.setY(obj.getY() - step_y);
                     obj.setYVelocity(0);
                     y_movement = 0;

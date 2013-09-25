@@ -1,6 +1,7 @@
 
 package model.physics;
 
+import model.tiles.MovingTile;
 import model.tiles.Tile;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
@@ -50,14 +51,27 @@ public class AABoundingRect extends BoundingShape{
     }
 
     @Override
-    public ArrayList<Tile> getTilesOccupying(Tile[][] tiles) {
+    public ArrayList<Tile> getTilesOccupying(Tile[][] tiles, ArrayList<MovingTile> movTiles) {
         ArrayList<Tile> occupiedTiles = new ArrayList<>();
+        boolean movingAdded = false;
+
         for(int i = (int) x; i <= x+width/2+(32-(width/2)%32); i+=32){
             for(int j = (int) y; j < y+(height/2)+(32-(height/2)%32); j+=32){
                 if (i/32 > 79 || j/32 > 49 || i/32 < 0 || j/32 < 0) {
                     return null;
                 } else {
-                    occupiedTiles.add(tiles[i/32][j/32]);
+
+                    for (MovingTile mTile : movTiles) {
+                        if (Math.round(mTile.getXF()) == i/32 && Math.round(mTile.getYF()) == j/32) {
+                            occupiedTiles.add(mTile);
+                            movingAdded = true;
+                        }
+                    }
+
+                    if (!movingAdded) {
+                        occupiedTiles.add(tiles[i/32][j/32]);
+                    }
+                    movingAdded = false;
                 }
             }
         }
@@ -83,14 +97,26 @@ public class AABoundingRect extends BoundingShape{
     }
 
     @Override
-    public ArrayList<Tile> getGroundTiles(Tile[][] tiles) {
-       ArrayList<Tile> tilesUnderneath = new ArrayList<>();
+    public ArrayList<Tile> getGroundTiles(Tile[][] tiles, ArrayList<MovingTile> movTiles) {
+        ArrayList<Tile> tilesUnderneath = new ArrayList<>();
+        boolean movingAdded = false;
         int j = (int) (y+height/2+1);
- 
+
         for(int i = (int) x; i <= x+width/2+(32-(width/2)%32); i+=32){
+
+            for (MovingTile mTile : movTiles) {
+                if (Math.round(mTile.getXF()) == i/32 && Math.round(mTile.getYF()) == j/32) {
+                    tilesUnderneath.add(mTile);
+                    movingAdded = true;
+                }
+            }
+
+            if (!movingAdded) {
                 tilesUnderneath.add(tiles[i/32][j/32]);
+            }
+            movingAdded = false;
         }
- 
+
         return tilesUnderneath;
     }
     

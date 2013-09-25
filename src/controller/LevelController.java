@@ -105,9 +105,9 @@ public class LevelController extends BasicGameState implements ComponentListener
             if (!player.isRollingEnabled()) {
                 playerController.handleInput(gc.getInput(), delta);
             }
-
+            level.update(delta);
             physics.handlePysics(level, delta, player.isHighEnabled());
-            System.out.println("y: " + player.getY());
+
         } else {
             Player.highSound.stop();
             Input in = gc.getInput();

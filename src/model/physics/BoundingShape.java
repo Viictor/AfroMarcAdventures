@@ -1,6 +1,7 @@
 
 package model.physics;
 
+import model.tiles.MovingTile;
 import model.tiles.Tile;
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ public abstract class BoundingShape {
     
     public abstract void movePosition(float x, float y);
     
-    public abstract ArrayList<Tile> getTilesOccupying(Tile[][] tiles);
+    public abstract ArrayList<Tile> getTilesOccupying(Tile[][] tiles, ArrayList<MovingTile> movTiles);
     
-    public abstract ArrayList<Tile> getGroundTiles(Tile[][] tiles);
+    public abstract ArrayList<Tile> getGroundTiles(Tile[][] tiles, ArrayList<MovingTile> movTiles);
     
     public abstract int offTheMargins();
 }

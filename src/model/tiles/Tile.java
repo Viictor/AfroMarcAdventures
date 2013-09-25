@@ -27,6 +27,14 @@ public class Tile {
         return y;
     }
 
+    public void moveX(float x) {
+        this.x += x;
+    }
+
+    public void moveY(float y) {
+        this.y += y;
+    }
+
     public BoundingShape getBoundingShape() {
         return boundingShape;
     }
